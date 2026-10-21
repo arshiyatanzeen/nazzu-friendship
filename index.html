@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b18">
+<title>NAZZU.EXE × ARSHI.EXE — Friendship Incident Report</title>
+<style>
+:root{--bg:#070b18;--panel:#0d1630;--panel2:#111e3d;--line:#273b66;--blue:#a9c2ff;--cyan:#7de7ff;--pink:#ff9ed8;--text:#f4f6ff;--muted:#b8c4e2;--green:#8effc1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#20396b 0%,#0b1430 38%,var(--bg) 75%);color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(#9cb8ff14 1px,transparent 1px),linear-gradient(90deg,#9cb8ff14 1px,transparent 1px);background-size:26px 26px}
+a{color:var(--cyan)}button{font:inherit;cursor:pointer;border:1px solid #526ca1;border-radius:12px;background:linear-gradient(135deg,#c2d2ff,#79e6ff);color:#081126;font-weight:900;padding:13px 16px;box-shadow:0 5px 0 #334875;transition:.15s}button:hover{transform:translateY(-2px);filter:brightness(1.06)}button:active{transform:translateY(3px);box-shadow:none}.alt{background:#111e3d;color:var(--text);border-color:#334a7a;box-shadow:0 5px 0 #080e20}.danger{background:#ffb5d8;border-color:#a65e89;color:#260d20;box-shadow:0 5px 0 #542440}
+.wrap{width:min(100% - 24px,820px);margin:auto;position:relative;padding:18px 0 55px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;letter-spacing:1px;color:var(--cyan);flex-wrap:wrap}.status{border:1px solid #34517d;border-radius:99px;padding:7px 10px;background:#0b1530}
+.hero{text-align:center;padding:58px 0 32px}.stamp{display:inline-block;border:1px dashed var(--pink);color:var(--pink);padding:8px 11px;transform:rotate(-2deg);font-size:10px;letter-spacing:2px;font-weight:bold}
+h1{font-size:clamp(39px,10vw,82px);line-height:.92;letter-spacing:-4px;margin:23px 0 18px;text-shadow:0 0 32px #83b5ff44}h1 span{color:var(--cyan)}.subtitle{max-width:560px;margin:auto;color:var(--muted);font-family:system-ui,sans-serif;line-height:1.7;font-size:16px}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0}.tiny{font-size:11px;color:#8498c5;line-height:1.7}
+.panel{border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#101c39f5,#0a1228f7);padding:22px;margin:15px 0;box-shadow:0 14px 45px #0004;position:relative;overflow:hidden}
+.panel:after{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),var(--pink),transparent);opacity:.6}
+.label{font-size:10px;letter-spacing:2px;color:var(--cyan);font-weight:900;text-transform:uppercase}
+h2{font-size:clamp(20px,5vw,28px);margin:10px 0 12px;letter-spacing:-1px}h3{font-size:15px;margin:8px 0}p{line-height:1.75;color:var(--muted);font-family:system-ui,sans-serif}
+.hidden{display:none!important}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tile{border:1px solid #293d68;background:#09132b;border-radius:13px;padding:14px}.tile .emoji{font-size:25px}.tile p{font-size:13px;margin:6px 0 0}.tile b{color:#e5edff}
+.terminal{background:#030711;border:1px solid #273b66;border-radius:12px;padding:14px;text-align:left;font-size:12px;line-height:1.9;color:var(--green);overflow-wrap:anywhere}.terminal .warn{color:var(--pink)}.terminal .blue{color:var(--cyan)}
+.meter{height:10px;background:#202e4e;border-radius:99px;overflow:hidden;margin:10px 0 5px}.meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:width 1s}
+.award{display:flex;gap:12px;padding:13px;margin:9px 0;background:#09132b;border:1px solid #293d68;border-radius:12px}.award .emoji{font-size:24px}.award p{font-size:13px;margin:4px 0 0}.award b{color:#e7eeff}
+.bigquote{border-left:3px solid var(--pink);padding:8px 0 8px 15px;color:#f5e6ff;font-family:system-ui,sans-serif;line-height:1.8}
+input{width:100%;border:1px solid #3a507c;border-radius:10px;background:#070f23;color:var(--text);padding:13px;font:inherit;margin:6px 0 12px}
+.option{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.option button{font-size:12px;padding:10px 12px}
+#finalMessage{white-space:pre-line;font-family:system-ui,sans-serif;line-height:1.9;background:#080f22;border:1px solid #2a3e69;border-radius:13px;padding:17px;color:#f4f6ff}
+footer{text-align:center;color:#8294bc;font-size:11px;line-height:1.9;padding:26px 10px}
+#toast{position:fixed;z-index:10;left:50%;bottom:18px;transform:translateX(-50%);background:#d8e6ff;color:#091126;border-radius:99px;padding:12px 16px;font-size:12px;font-weight:900;max-width:90vw;text-align:center;box-shadow:0 10px 35px #0008}
+.float{position:fixed;z-index:8;pointer-events:none;top:-35px;animation:fall 3.4s linear forwards}
+.shake{animation:shake .4s linear}
+@keyframes fall{to{transform:translateY(110vh) rotate(740deg);opacity:0}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@media(max-width:540px){.grid{grid-template-columns:1fr}.panel{padding:17px}h1{letter-spacing:-2px}.hero{padding-top:46px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><span>◈ FRIENDSHIP.EXE v2.0</span><span class="status">SYSTEM STATUS: MOSTLY STABLE (?)</span></div>
+  <header class="hero">
+    <div class="stamp">TOP SECRET · FRIENDSHIP DEPARTMENT</div>
+    <h1>NAZZU<span>.EXE</span><br>× ARSHI<span>.EXE</span></h1>
+    <p class="subtitle">A highly confidential, unnecessarily dramatic investigation into how two people became friends and immediately started acting like a public disturbance.</p>
+    <div class="actions">
+      <button onclick="openIt('casefile')">▶ START INVESTIGATION</button>
+      <button class="alt" onclick="chaos()">⚠ RELEASE THE NONSENSE</button>
+    </div>
+    <div class="tiny">CASE NO. 060 · 2 MONTHS OF FRIENDSHIP · STRICTLY PLATONIC, YOUR HONOUR</div>
+  </header>
+
+  <section id="casefile" class="panel hidden">
+    <div class="label">01 / official case file</div>
+    <h2>🚨 NAZZU HAS BEEN REPORTED.</h2>
+    <div class="terminal">
+      <div>> SUBJECT: NAZZU</div>
+      <div>> CO-DEFENDANT: ARSHI</div>
+      <div>> CHARGES: excessive yapping, random nonsense, being a menace</div>
+      <div class="warn">> THREAT LEVEL: emotionally attached to the friendship, but will deny it under oath</div>
+      <div class="blue">> SENTENCE: 60 more days of friendship. NO APPEALS.</div>
+    </div>
+    <p>By opening this file, Nazzu acknowledges that Arshi is not responsible for any laughing, eye-rolling, dramatic sighing, or sudden realisation that this is actually cute.</p>
+    <button class="alt" onclick="toast('LEGAL TEAM HAS LEFT THE CHAT. 😂')">I DENY ALL CHARGES</button>
+  </section>
+
+  <section class="panel">
+    <div class="label">02 / system diagnostics</div><h2>Friendship stats nobody asked for 📊</h2>
+    <div class="tile"><b>Yapping level</b><div class="meter"><span style="width:97%"></span></div><div class="tiny">97% · could be higher, concerningly</div></div>
+    <div class="tile" style="margin-top:10px"><b>Normal behaviour</b><div class="meter"><span style="width:4%;background:linear-gradient(90deg,#ff9ed8,#ff5e87)"></span></div><div class="tiny">4% · system error: normal.exe not found</div></div>
+    <div class="tile" style="margin-top:10px"><b>Friendship loyalty</b><div class="meter"><span style="width:100%"></span></div><div class="tiny">100% · no roasting this stat, it's serious 💙</div></div>
+    <p class="tiny">These numbers are fake. The friendship appreciation is not.</p>
+  </section>
+
+  <section class="panel">
+    <div class="label">03 / the timeline</div><h2>Previously on: WHAT IS THIS FRIENDSHIP 😭</h2>
+    <div class="grid">
+      <div class="tile"><div class="emoji">🧍‍♂️🧍‍♀️</div><h3>EP 01 — The Beginning</h3><p>Two humans began talking. Nobody consulted the plot department.</p></div>
+      <div class="tile"><div class="emoji">💬</div><h3>EP 02 — The Yapping</h3><p>One conversation became many. The exit button was apparently decorative.</p></div>
+      <div class="tile"><div class="emoji">🤡</div><h3>EP 03 — The Chaos</h3><p>At some point, nonsense became a shared language. Researchers are confused.</p></div>
+      <div class="tile"><div class="emoji">💙</div><h3>EP 04 — The Soft Bit</h3><p>Under all the roasting, there is a real friendship worth keeping.</p></div>
+    </div>
+    <p class="tiny">Add your actual first-chat story or inside joke here to make this section painfully specific.</p>
+  </section>
+
+  <section class="panel">
+    <div class="label">04 / the roast tribunal</div><h2>NAZZU'S ANNUAL PERFORMANCE REVIEW 🧾</h2>
+    <div class="award"><div class="emoji">🥇</div><div><b>Professional Menace of the Month</b><p>Demonstrates advanced skills in being annoying without a licence.</p></div></div>
+    <div class="award"><div class="emoji">📢</div><div><b>CEO of Saying Random Stuff</b><p>Has never met a normal conversation he couldn't derail.</p></div></div>
+    <div class="award"><div class="emoji">🫠</div><div><b>Certified Headache™</b><p>Annoying enough to roast. Important enough to keep around. Unfortunately.</p></div></div>
+    <div class="award"><div class="emoji">🛡️</div><div><b>Friendship Employee of the Month</b><p>Benefits include unlimited nonsense and absolutely no salary.</p></div></div>
+    <div class="award"><div class="emoji">💙</div><div><b>Secretly a Good Friend</b><p>We roast you because the friendship is safe enough for jokes. This award is actually sincere. Don't ruin the moment.</p></div></div>
+  </section>
+
+  <section class="panel">
+    <div class="label">05 / interactive nonsense</div><h2>Choose Nazzu's fate ⚖️</h2>
+    <p>Pick a button. The Friendship Court is extremely biased.</p>
+    <div class="option">
+      <button class="alt" onclick="fate('roast')">ROAST HIM 🔥</button>
+      <button class="alt" onclick="fate('soft')">GET EMOTIONAL 🥹</button>
+      <button class="alt" onclick="fate('chaos')">CAUSE A SCENE 💥</button>
+    </div>
+    <div id="fateBox" class="bigquote hidden" aria-live="polite"></div>
+  </section>
+
+  <section class="panel">
+    <div class="label">06 / friendship compatibility test</div><h2>Extremely scientific quiz 🧪</h2>
+    <p>Answer all three. The results have been peer-reviewed by absolutely nobody.</p>
+    <div class="quiz"><b>1. Who is more dramatic?</b><div class="option"><button class="alt" onclick="pick(0,'Arshi',this)">Arshi</button><button class="alt" onclick="pick(0,'Nazzu',this)">Nazzu</button><button class="alt" onclick="pick(0,'Both',this)">Both. Obviously.</button></div></div>
+    <div class="quiz"><b>2. Who is more likely to start nonsense?</b><div class="option"><button class="alt" onclick="pick(1,'Arshi',this)">Arshi</button><button class="alt" onclick="pick(1,'Nazzu',this)">Nazzu</button><button class="alt" onclick="pick(1,'Both',this)">A joint operation</button></div></div>
+    <div class="quiz"><b>3. What's the official friendship status?</b><div class="option"><button class="alt" onclick="pick(2,'Besties',this)">Besties 🤝</button><button class="alt" onclick="pick(2,'Chaos',this)">Public disturbance</button><button class="alt" onclick="pick(2,'Both',this)">Both, your honour</button></div></div>
+    <button onclick="score()">SUBMIT TO THE FRIENDSHIP LAB</button><p id="quizResult" aria-live="polite"></p>
+  </section>
+
+  <section class="panel">
+    <div class="label">07 / the emotional damage (affectionate)</div><h2>Okay, jokes aside. Read this bit. 💙</h2>
+    <p class="bigquote">Not every good friendship needs a big dramatic origin story. Sometimes it's just two people talking, getting comfortable, sharing random bits of their day, and slowly becoming a familiar part of each other's routine.</p>
+    <p>I'm genuinely glad we became friends, Nazzu. I appreciate the laughs, the random conversations, and the fact that these two months have turned into memories I can look back on and smile about. I hope we keep showing up for each other, celebrating the good stuff, getting through the rough days, and being ridiculous whenever life allows it.</p>
+    <p>And before you get all emotional: yes, you're still annoying. This website has a brand to protect. 🤝😂</p>
+  </section>
+
+  <section class="panel">
+    <div class="label">08 / final boss</div><h2>Unlock your personalised message 🔐</h2>
+    <p>Enter the secret code. Hint: it's the person this website is roasting.</p>
+    <input id="code" placeholder="Enter secret code..." autocomplete="off" aria-label="Secret code">
+    <button onclick="unlock()">UNLOCK THE FINAL MESSAGE</button>
+    <p class="tiny">Psst: the code is NAZZU (not case-sensitive).</p>
+    <div id="final" class="hidden">
+      <div id="finalMessage">HAPPYYY TWO MONTHS OF FRIENDSHIP, NAZZUUU 😭🤝🏻💙
+
+60 DAYS COMPLETED.
+LIFETIME OF ANNOYING YOU: STILL PENDING.
+
+I genuinely am glad we became friends. Thank you for the random talks, the laughs, the silly moments, and for becoming one of those people who can make an ordinary day a little less ordinary.
+
+I hope we get a LOT more memories, inside jokes, chaotic conversations, and moments where we laugh at something that makes absolutely no sense to anyone else.
+
+You are, objectively, a certified headache.
+But you're MY FRIEND, so I suppose I'll keep you. 😔🤝
+
+Happy 2-month friendship anniversary, Nazzu.
+Stay chaotic. Stay kind. And never let this website go to your head.
+
+— Arshi ✦</div>
+      <div class="actions"><button onclick="copyMessage()">COPY MESSAGE 💌</button><button class="alt" onclick="chaos()">CONFETTI ATTACK 🎉</button></div>
+    </div>
+  </section>
+  <footer>END OF REPORT · NO FRIENDS WERE HARMED DURING THIS INVESTIGATION<br>Built with 2% coding, 38% roasting, 60% friendship. <br><b>STRICTLY FRIENDSHIP. MAXIMUM NONSENSE. 🤝</b></footer>
+</div>
+<div id="toast" class="hidden" role="status"></div>
+<script>
+function openIt(id){let e=document.getElementById(id);e.classList.remove('hidden');e.scrollIntoView({behavior:'smooth',block:'center'});toast('CASE FILE OPENED. LEGAL TEAM HAS LOGGED OFF.')}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.remove('hidden');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>e.classList.add('hidden'),2400)}
+function chaos(){let a=['✦','✧','★','💙','🤝','😂','🎉','⚠️','🫠','💥'];for(let i=0;i<48;i++){let e=document.createElement('span');e.className='float';e.textContent=a[Math.floor(Math.random()*a.length)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(15+Math.random()*20)+'px';e.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4300)}document.body.classList.remove('shake');void document.body.offsetWidth;document.body.classList.add('shake');toast('CHAOS DEPLOYED. NAZZU HAS BEEN NOTIFIED SPIRITUALLY. 💥')}
+function fate(which){let box=document.getElementById('fateBox');let t={roast:"NAZZU, your free trial of being normal has expired. Please contact Arshi's customer support. Estimated wait time: forever. 🤡",soft:"Plot twist: under all the roasting, I'm actually really glad you're my friend. You matter, idiot. Now stop looking at the screen like that. 🥹💙",chaos:"🚨 FRIENDSHIP COURT HAS DECLARED A NATIONAL NONSENSE EMERGENCY. Everyone remain calm. Except Nazzu. He has never been calm. 🚨"};box.textContent=t[which];box.classList.remove('hidden');box.classList.add('shake')}
+let answers={};function pick(i,v,b){answers[i]=v;let group=b.closest('.quiz');group.querySelectorAll('button').forEach(x=>x.style.outline='none');b.style.outline='2px solid #7de7ff'}
+function score(){let r=document.getElementById('quizResult');if(Object.keys(answers).length<3){r.textContent='ANSWER ALL THREE, YOUR HONOUR. This quiz has a strict nonsense protocol. 😭';return}r.textContent='FINAL RESULT: 100% chaos compatibility, 100% friendship, 0% normal behaviour. Recommended treatment: keep being friends and continue annoying each other responsibly. 🤝😂';chaos()}
+function unlock(){if(document.getElementById('code').value.trim().toLowerCase()==='nazzu'){document.getElementById('final').classList.remove('hidden');document.getElementById('final').scrollIntoView({behavior:'smooth',block:'center'});chaos()}else toast('ACCESS DENIED. HINT: IT IS LITERALLY YOUR NAME, BRO. 😭')}
+async function copyMessage(){let t=document.getElementById('finalMessage').innerText;try{await navigator.clipboard.writeText(t);toast('MESSAGE COPIED. SEND IT WITH CONFIDENCE. 💙')}catch(e){toast('Copy the message by selecting its text 💙')}}
+</script>
+</body></html>
